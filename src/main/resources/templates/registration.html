@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/bootstrap.min.css}"/>
+</head>
+<style>
+    .wrapper {
+        margin-top: 2em;
+    }
+
+    .logo {
+        height: 15em;
+        margin-bottom: 2em;
+    }
+
+</style>
+<body>
+<div class="wrapper">
+    <div class="text-center">
+        <img class="logo" th:src="@{/static/logo.jpg}">
+    </div>
+    <form class="form-horizontal" th:object="${participant}" method="post">
+
+        <div th:class="${#fields.hasErrors('name')}? 'form-group has-error': 'form-group'">
+            <label th:for="name" class="col-sm-4 control-label">Name</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" th:field="*{name}" placeholder="Name"/>
+            </div>
+        </div>
+
+        <div th:class="${#fields.hasErrors('lastName')}? 'form-group has-error': 'form-group'">
+            <label th:for="name" class="col-sm-4 control-label">Last name</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" th:field="*{lastName}" placeholder="Last name"/>
+            </div>
+        </div>
+
+        <div th:class="${#fields.hasErrors('company')}? 'form-group has-error': 'form-group'">
+            <label th:for="name" class="col-sm-4 control-label">Company</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" th:field="*{company}" placeholder="company"/>
+            </div>
+        </div>
+
+        <div th:class="${#fields.hasErrors('jobTitle')}? 'form-group has-error': 'form-group'">
+            <label th:for="name" class="col-sm-4 control-label">Job title</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" th:field="*{jobTitle}" placeholder="jobTitle"/>
+            </div>
+        </div>
+
+        <div th:class="${#fields.hasErrors('speechTheme')}? 'form-group has-error': 'form-group'">
+            <label th:for="name" class="col-sm-4 control-label">Speech theme</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" th:field="*{speechTheme}" placeholder="speechTheme"/>
+            </div>
+        </div>
+
+        <div th:class="${#fields.hasErrors('email')}? 'form-group has-error': 'form-group'">
+            <label th:for="name" class="col-sm-4 control-label">Email</label>
+            <div class="col-sm-5">
+                <input type="email" class="form-control" th:field="*{email}" placeholder="email"/>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <input type="submit" class="btn btn-success"/>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>
